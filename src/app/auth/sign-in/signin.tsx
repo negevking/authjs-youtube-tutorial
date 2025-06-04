@@ -3,29 +3,29 @@
 import { FcGoogle } from "react-icons/fc";
 import { useTransition, useState } from "react";
 import { handleGoogleSignIn } from "@/src/lib/auth/googleSignInServerAction";
-import { handleEmailSignIn } from "@/src/lib/auth/emailSignInServerAction";
+// import { handleEmailSignIn } from "@/src/lib/auth/emailSignInServerAction";
 
 export const SignInPage: React.FC = () => {
-  const [isPending, startTransition] = useTransition();
-  const [formData, setFormData] = useState({ email: "" as string });
+  // const [isPending, startTransition] = useTransition();
+  // const [formData, setFormData] = useState({ email: "" as string });
 
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault(); // Prevents the form from submitting and reloading the page, allowing us to handle the submission in TypeScript.
-    try {
-      startTransition(async () => {
-        await handleEmailSignIn(formData.email);
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const handleSubmit = (event: React.FormEvent) => {
+  //   event.preventDefault(); // Prevents the form from submitting and reloading the page, allowing us to handle the submission in TypeScript.
+  //   try {
+  //     startTransition(async () => {
+  //       await handleEmailSignIn(formData.email);
+  //     });
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   return (
     <div className="signin-page">
       <div className="signin-card">
         <h2>Sign In</h2>
         <div className="form-container">
-          <form className="email-signin-form" onSubmit={handleSubmit}>
+          {/* <form className="email-signin-form" onSubmit={handleSubmit}>
             <input
               className="form-input"
               type="email"
@@ -46,7 +46,7 @@ export const SignInPage: React.FC = () => {
             <div className="line"></div>
             <span className="or">or</span>
             <div className="line"></div>
-          </div>
+          </div> */}
 
           <div className="social-logins">
             <button className="google" onClick={() => handleGoogleSignIn()}>
