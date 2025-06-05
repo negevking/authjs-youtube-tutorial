@@ -1,4 +1,6 @@
 // File: components/ReviewPane.js
+
+'use client'
 import { useState } from 'react'
 import QuestionViewer from './QuestionViewer'
 import styles from '../styles/Exam.module.css'

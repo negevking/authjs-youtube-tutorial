@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect } from 'react'
 import styles from '../styles/Exam.module.css'
 import MathsHTML from './MathsHTML'

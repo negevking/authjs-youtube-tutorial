@@ -2,12 +2,11 @@
 'use client'
 
 import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+import Link from 'next/link';
 import styles from '../styles/Home.module.css'
 import theme from '../styles/theme'
 
 export default function HomePage({ exams }) {
-  const router = useRouter()
 
   useEffect(() => {
     theme.forEach((color, idx) => {
@@ -32,13 +31,9 @@ export default function HomePage({ exams }) {
                   <div className={styles.yearLabel}>{year.year}</div>
                   <div className={styles.partsRow}>
                     {year.sections.map((sectionObj) => (
-                      <button
-                        key={sectionObj.section}
-                        className={styles.partBtn}
-                        onClick={() => router.push(`/${sectionObj.display_code}/info`)}
-                      >
+                      <Link href={`/${sectionObj.display_code}`} className={styles.partBtn}>
                         {sectionObj.section}
-                      </button>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -46,8 +41,9 @@ export default function HomePage({ exams }) {
             </div>
           </section>
         ))}
-        <button className={styles.loginBtn} onClick={() => router.push('/practice')}>
-          Attempt questions sorted by topic
+        {/* UPDATE BUTTON STYLING FOR PRACTICE MODE */}
+        <button className={styles.loginBtn}>
+          <Link href={`/practice}`}>Attempt questions sorted by topic</Link>
         </button>
       </main>
     </div>

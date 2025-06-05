@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, memo } from 'react'
 import styles from '../styles/Exam.module.css'
 
